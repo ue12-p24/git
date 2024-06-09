@@ -1,0 +1,12 @@
+calysto_bash
+
+# tooling
+
+jupyter
+jupytext
+ipywidgets
+
+jupyterlab-myst
+
+# for updating nbhosting toc from jupyter book
+ruamel.yaml
