@@ -167,7 +167,7 @@ On a déjà parlé de cette feature dans vs-code, pour rappel:
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video
@@ -178,7 +178,7 @@ Pour information, on peut faire ce genre de choses également à partir d'outils
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video

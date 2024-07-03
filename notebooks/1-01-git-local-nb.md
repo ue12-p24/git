@@ -657,7 +657,7 @@ si on devait imaginer un *workflow* sans index, ça donnerait ceci :
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video
@@ -668,7 +668,7 @@ grâce à l'index on peut choisir quels changements mettre ou pas dans le commit
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video
@@ -1143,7 +1143,7 @@ enfin sachez qu'on peut parfaitement ajouter/enlever dans l'index des changement
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video
@@ -1169,7 +1169,7 @@ Maintenant qu'on a bien compris les deux classes de changements dits "pendants",
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video

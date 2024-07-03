@@ -79,7 +79,7 @@ cette vidéo décortique le fonctionnement de `push` dans un cas simple
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video
@@ -92,7 +92,7 @@ dans la suite de la vidéo on envisage un cas (**très très fréquent**) où le
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video

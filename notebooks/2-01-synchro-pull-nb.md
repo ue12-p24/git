@@ -84,7 +84,7 @@ on a déjà parlé de cette commande, c'est celle qui permet en partant de rien,
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video
@@ -174,7 +174,7 @@ on regarde son fonctionnement illustré dans une vidéo (dans le prolongement du
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video
@@ -251,7 +251,7 @@ la troisième chose à retenir est que, puisque `pull` finit par faire un `merge
 
 ```{code-cell}
 :hide_input: true
-:tags: [hide-input]
+:tags: [remove-input]
 
 %%python
 from ipywidgets import Video
