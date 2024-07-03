@@ -37,7 +37,19 @@ et on a vu comment "faire avancer" une modification, en deux phases :
 * d'abord on la met dans l'index avec `add`
 * puis dans un commit avec `commit`
 
-cela, ça couvre le cas idéal où on ne se trompe jamais, où on ne change pas d'avis  
+````{admonition} rappel: add ligne par ligne
+:class: tip dropdown
+
+souvenez-vous qu'on peut
+
+* ajouter d'un seul coup toutes les modifications d'un fichier avec  
+  `git add nom-du-fichier`
+* mais aussi, ajouter très finement - i.e. ligne par ligne  
+  dans ce cas il vaut mieux utiliser une GUI - [voir plus bas, c'est faisable par exemple avec vscode](label-guis)  
+  pourquoi on aurait envie de faire ça ? pour ne pas mélanger des modifications qui n'ont rien à voir dans un même commit
+````
+
+mais cela, ça ne couvre que le cas idéal où on ne se trompe jamais, où on ne change pas d'avis  
 mais dans la vraie vie bien sûr, ce n'est pas comme ça que ça fonctionne, et on a besoin de pouvoir rétropédaler
 
 +++
@@ -201,6 +213,7 @@ remarquez qu'on ne modifie pas le commit courant (les commits sont immutables), 
 
 +++ {"tags": []}
 
+(label-guis)=
 ## utiliser une GUI
 
 reprenons le niveau de base, pour signaler enfin qu'il existe plein d'outils graphiques pour simplifier l'utilisation de git, et notamment, surtout au début, pour avoir en permanence une représentation bien à jour de l'état du dépôt
