@@ -163,9 +163,10 @@ pour se mettre inconditionnellement sur un commit, avec un dépôt propre
 
 +++
 
-````{admonition} note historique: avant git restore
+`````{admonition} note historique: avant git restore
 :class: dropdown caution
 
+````{div}
 dans les versions anciennes de git, i.e. avant que l'on introduise git restore, on devait utiliser à la place ceci
 
 | pour faire | avant restore | avec restore |
@@ -174,6 +175,7 @@ dans les versions anciennes de git, i.e. avant que l'on introduise git restore, 
 | jeter les changements non indexés | `git checkout` | `git restore` |
 | défaire les deux familles de changements | `git reset --hard` | `git restore --staged --worktree` |
 ````
+`````
 
 +++ {"tags": []}
 
@@ -199,17 +201,21 @@ si bien que, selon le cas qui vous concerne parmi ceux listés plus haut, vous p
 
 1. pour récrire votre message, refaites simplement  
    `git commit --amend`  
-   juste après avoir fait le commit avec un message raté
-   
-2. si c'est plus profond, ajoutez dans l'index  
-   les changements qui manquent au commit courant  
-   avant de faire ici encore  
-   `git commit --amend`  
+   qui vous ouvrira votre éditeur avec le message du commit courant
 
-3. dans le dernier cas, faites alors  
+2. si c'est plus profond:
+   * ajoutez dans l'index les changements qui manquent au commit courant
+   * avant de faire ici encore `git commit --amend`
+   * vous pouvez même ajouter l'option `--no-edit` si le message était correct
+
+3. pour le dernier cas, faites ceci  
    `git commit --amend --author="Jean Dupont <jean.dupont@example.com>"`
-  
-remarquez qu'on ne modifie pas le commit courant (les commits sont immutables), on en crée simplement un nouveau (le premier reste dans le repo, mais s'il est inatteignable, il sera nettoyé au bout de quelque temps)
+
+````{admonition} on ne modifie pas le commit
+
+remarquez qu'avec `--amend` on ne **modifie pas** le commit courant (les commits sont **immutables**), on en **crée** simplement **un nouveau**  
+le premier reste dans le repo, mais généralement on ne le "voit plus" car il est inatteignable, et il sera nettoyé au bout de quelque temps
+````
 
 +++ {"tags": []}
 
