@@ -40,7 +40,7 @@ pour plus de détails, je vous renvoie à cette page <https://git-scm.com/book/e
 
 +++
 
-### plusieurs types d'objets
+## plusieurs types d'objets
 
 en fait pour décrire un *commit* on a besoin de 3 types d'objets
 
@@ -58,7 +58,7 @@ sachant que pour gagner de la place tout ceci est compressé
 
 +++
 
-### le type *commit*
+## le type *commit*
 
 un object `commit` est implémenté comme un simple fichier texte compressé  
 et pour le voir il suffit de faire
@@ -106,7 +106,7 @@ regardons ça de plus près
 
 +++
 
-### le type *tree*
+## le type *tree*
 
 c'est le même principe, on obtient le contenu de cet objet à partir de son hash, en utilisant comme plus haut la commande `cat-file`
 
@@ -132,8 +132,9 @@ git cat-file -p $tree_hash
 
 cette fois, on voit une simple collection d'objets, un mélange de `tree` et de `blob`  
 et vous l'avez deviné, cette liste donne le contenu du dossier principal du commit:
-- les entrées de type `tree` signale la présence d'un sous-dossier
-- les entrées de tyle `blob` correspondent aux fichiers usuels
+
+- une entrée de type `tree` signale la présence d'un sous-dossier
+- une entrée de tyle `blob` correspond à un fichier usuel
 
 ainsi pour être concret avec un listing comme celui-ci
 ```console
@@ -152,7 +153,7 @@ pour retrouver le contenu des sous-dossiers, eh bien on vient de voir comment ç
 
 +++
 
-### le type *blob*
+## le type *blob*
 
 il ne reste plus qu'à comprendre comment on retrouve le contenu des fichiers usuels
 ça ne peut pas être plus simple, l'objet est tout simplement sauvé comme le fichier compressé
@@ -166,7 +167,7 @@ et avec le premier blob qui est mentionné ça nous donnerait
 
 blob_hash=$(git cat-file -p $tree_hash | grep ' blob ' | head -1 | awk '{print $3;}')
 
-# 
+#
 echo le premier blob a pour hash $blob_hash
 ```
 
@@ -178,7 +179,7 @@ echo le premier blob a pour hash $blob_hash
 git cat-file -p $blob_hash
 ```
 
-### mais c'est rangé où ?
+## mais c'est rangé où ?
 
 chacun de ces objets est rangé dans un fichier sous `.git/objects`; par exemple
 
@@ -193,7 +194,7 @@ il s'agit d'une simple optimisation pour éviter de se retrouver avec un trop gr
 
 +++
 
-### et sous quel format ?
+## et sous quel format ?
 
 le fichier sous `.git/objects` contient le texte (celui qu'on a vu avec `cat-file`) simplement compressé avec un outil qui s'appelle `zlib`
 
@@ -244,5 +245,17 @@ on peut aussi décompresser directement en bash avec `gzip`, même si c'est enco
 ```bash
 (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" ; cat ../$path) | gzip -dc
 ```
-à la fin `gzip se plaint qu'il manque le footer de checksum, mais c'est suffisant pour ce qu'on cherche à faire...
+à la fin `gzip` se plaint qu'il manque le footer de checksum, mais c'est suffisant pour ce qu'on cherche à faire...
 ````
+
++++
+
+## quelques références pour aller plus loin
+
+ces deux liens sont des micro-implémentations - en Python et JavaScript respectivement:
+
+* <https://benhoyt.com/writings/pygit/>
+* <http://gitlet.maryrosecook.com/docs/gitlet.html>
+
+
+avec énormément d'explications qui peuvent éclairer certains points, dont notamment pour le premier lien, l'implémentation de l'index.
