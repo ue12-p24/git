@@ -12,8 +12,6 @@ language_info:
   - text: MetaKernel Magics
     url: https://metakernel.readthedocs.io/en/latest/source/README.html
   name: bash
-nbhosting:
-  title: bonnes pratiques
 ---
 
 License CC BY-NC-ND, Thierry Parmentelat & Valérie Roy
@@ -166,7 +164,6 @@ Car il nous faut la possibilité d'ajouter dans l'index, non pas tout le contenu
 On a déjà parlé de cette feature dans vs-code, pour rappel:
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
@@ -177,7 +174,6 @@ Video.from_file("_static/vscode-line-by-line.mp4", autoplay=False)
 Pour information, on peut faire ce genre de choses également à partir d'outils 'graphiques' autour de `git`, comme par exemple avec `SourceTree` (qui est dispo sur Windows et Mac, malheureusement pas sur linux..)
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python

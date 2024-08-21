@@ -12,8 +12,6 @@ language_info:
   - text: MetaKernel Magics
     url: https://metakernel.readthedocs.io/en/latest/source/README.html
   name: bash
-nbhosting:
-  title: "synchro entre d\xE9p\xF4ts : pousser"
 ---
 
 License CC BY-NC-ND, Thierry Parmentelat & Valérie Roy
@@ -78,7 +76,6 @@ sans discuter plus avant de la pertinence de ce choix, voyons d'abord comment to
 cette vidéo décortique le fonctionnement de `push` dans un cas simple
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
@@ -91,7 +88,6 @@ Video.from_file("_static/Push.mp4", autoplay=False)
 dans la suite de la vidéo on envisage un cas (**très très fréquent**) où le push **ne peut pas se faire** avant que l'on ne fasse d'abord un `pull`
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python

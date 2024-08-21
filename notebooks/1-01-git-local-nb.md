@@ -12,8 +12,6 @@ language_info:
   - text: MetaKernel Magics
     url: https://metakernel.readthedocs.io/en/latest/source/README.html
   name: bash
-nbhosting:
-  title: les bases
 ---
 
 License CC BY-NC-ND, Thierry Parmentelat & Valérie Roy
@@ -242,7 +240,7 @@ git init --help
 
 ![](media/term-init-help.png)
 
-+++ {"tags": []}
++++
 
 ````{admonition} ça fait quoi au juste "git init" ?
 :class: dropdown seealso
@@ -656,7 +654,6 @@ il faut insister également sur le fait que, lorsqu'on parle de l'index
 si on devait imaginer un *workflow* sans index, ça donnerait ceci :
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
@@ -667,7 +664,6 @@ Video.from_file("_static/NoIndex.mp4", autoplay=False)
 grâce à l'index on peut choisir quels changements mettre ou pas dans le commit :
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
@@ -730,11 +726,11 @@ Pour chaque commit, vous avez:
   - la date du commit
   - le message
 
-+++ {"tags": []}
++++
 
 ## identifiant d'un commit: le `SHA-1`
 
-+++ {"tags": []}
++++
 
 On parle rapidement de l'identifiant d'un commit comme `34269b459201f87b65e7c47b89c93a99a8c0b4e6`
 
@@ -816,7 +812,7 @@ la partie en couleur qui dit `(HEAD -> main)`
 **nous confirme que `main` est la branche courante**
 ````
 
-+++ {"tags": []}
++++
 
 Voici une illustration; on a anticipé un petit peu, on a imaginé le cas où la branche courantee est `devel` (encadrée), pour montrer la logique que suivent les références lorsqu'on fait un commit :
 
@@ -873,7 +869,7 @@ $ git commit -m"première implémentation de factorielle dans le fichier fact.py
 
 Nous voyons qu'un fichier a été créé dans le repo pour `fact.py`
 
-+++ {"tags": []}
++++
 
 ````{admonition} note
 N'essayez pas de comprendre le nombre qui apparaît après `create mode` là ca veut simplement dire que `fact.py` est un `Regular non-executable file`.
@@ -1142,7 +1138,6 @@ quoi qu'il en soit, on peut maintenant réajouter les changements, avec .. eh ou
 enfin sachez qu'on peut parfaitement ajouter/enlever dans l'index des changements au niveau de granularité de la ligne ! voici une session pour vous donner une idée;
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
@@ -1168,7 +1163,6 @@ Maintenant qu'on a bien compris les deux classes de changements dits "pendants",
 * ou avec vs-code, si vous voulez expérimenter plus en avant l'usage de cet outil
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
@@ -1315,7 +1309,7 @@ Vous remarquez que lorsqu'on passe, à `git log`, l'avant-avant-dernier commit (
 **Mais** comme on indique à `git log` de parcourir de repo en commençant par le deuxième commit, eh bien comme corollaire de ce qu'on a vu plus haut (avec le graphe de parent et comment il est orienté), ce parcours-là ne peut découvrir que 2 commits.
 ````
 
-+++ {"tags": [], "cell_style": "split"}
++++ {"cell_style": "split"}
 
 ````{admonition} pour naviguer dans les branches
 :class: dropdown seealso
@@ -1525,7 +1519,7 @@ Donc ce qu'il faut remarquer, c'est
 * la référence **`HEAD`** désigne maintenant notre **avant-dernier commit**
 mais sinon bien entendu aucune branche n'a bougé
 
-+++ {"tags": []}
++++
 
 ````{admonition} git switch -c
 :class: note
@@ -1630,7 +1624,7 @@ nous allons pouvoir conclure ce scénario, avec la **fusion** (le *merge*) des d
 
 ce qu'on cherche à faire, c'est de créer **un commit unique** qui **mélange les changements** qu'on a pu faire **sur les deux branches**
 
-+++ {"tags": []}
++++
 
 ````{admonition} quelques précisions
 
@@ -1709,7 +1703,7 @@ git diff devel main
 
 ![](media/term-diff-devel-main.png)
 
-+++ {"tags": []}
++++
 
 ````{admonition} octopus merge
 :class: dropdown information
@@ -1723,7 +1717,7 @@ git merge commit1 commit2 commit3
 on va créer un commit qui aura 4 parents, dans l'ordre le commit courant, puis `commit1`, `commit2` et `commit3`; une fusion de plus de deux branches d'appelle un *octopus-merge*
 ````
 
-+++ {"tags": []}
++++
 
 ````{admonition} pour les curieux
 :class: dropdown attention

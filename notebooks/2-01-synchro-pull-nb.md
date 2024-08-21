@@ -12,8 +12,6 @@ language_info:
   - text: MetaKernel Magics
     url: https://metakernel.readthedocs.io/en/latest/source/README.html
   name: bash
-nbhosting:
-  title: "synchro entre d\xE9p\xF4ts : tirer"
 ---
 
 License CC BY-NC-ND, Thierry Parmentelat & Valérie Roy
@@ -83,7 +81,6 @@ et du coup en passant on va parler aussi de `git fetch` qui est, si on veut, un 
 on a déjà parlé de cette commande, c'est celle qui permet en partant de rien, de dupliquer un dépôt, typiquement trouvé sur github; le fonctionnement est simple, et peut être illustré comme ceci
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
@@ -137,7 +134,7 @@ interprétons cette réponse sybilline :
 
 dans notre cas, ce dépôt, c'est bien sûr celui sur github - ça pourrait être quoi d'autre ?
 
-+++ {"tags": []}
++++
 
 d'ailleurs pour vérifier on peut faire
 
@@ -146,7 +143,7 @@ $ git remote get-url origin
 https://github.com/ue12-p24/git-sandbox
 ```
 
-+++ {"tags": []}
++++
 
 ````{admonition} le nom origin
 :class: note
@@ -173,7 +170,6 @@ pour ça la deuxième commande de synchronisation qu'on est amené à utiliser l
 on regarde son fonctionnement illustré dans une vidéo (dans le prolongement du clip précédent)
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
@@ -223,7 +219,7 @@ il faut insister sur le fait que c'est une **information locale** et que c'est d
 
 dit autrement, si vous ne faites jamais ni `git pull` ni `git fetch` pendant un mois, vous aurez toujours `origin/main` qui pointe dans votre dépôt au même endroit, alors que sur github la branche aura sans doute avancé...
 
-+++ {"tags": []}
++++
 
 ````{admonition} note
 :class: note
@@ -250,15 +246,12 @@ la troisième chose à retenir est que, puisque `pull` finit par faire un `merge
   (dans lequel, de toutes façons, on n'a pas forcément le droit d'écrire en plus)
 
 ```{code-cell}
-:hide_input: true
 :tags: [remove-input]
 
 %%python
 from ipywidgets import Video
 Video.from_file("_static/PullDiverge.mp4", autoplay=False)
 ```
-
-+++ {"tags": []}
 
 ### quelques détails
 
@@ -269,7 +262,7 @@ sachez que dans des configurations plus complexes on doit bien entendu préciser
 * `git pull` est en réalité un raccourci pour `git pull origin`  
   ou encore `git pull origin main` puisqu'on est sur la branche main
 
-+++ {"tags": []}
++++
 
 ````{admonition} pour les très avancés
 :class: seealso
