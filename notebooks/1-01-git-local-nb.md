@@ -134,7 +134,10 @@ ls
 
 ce qui en vrai donne ceci:
 
-![](media/term-mkdir-cd-ls.png)
+```{image} media/term-mkdir-cd-ls.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -177,7 +180,10 @@ total 8
 4 -rw-r--r-- 1 vr vr 77 Sep  5 14:46 readme.md
 ```
 
-![](media/term-fill-readme.png)
+```{image} media/term-fill-readme.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -238,7 +244,10 @@ Comme pour toutes les commandes du système, de très nombreuses options sont di
 git init --help
 ```
 
-![](media/term-init-help.png)
+```{image} media/term-init-help.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -283,10 +292,15 @@ Reprenons; maintenant si nous voulons voir où on en est de notre tout nouveau d
 git status
 ```
 
-![](media/term-status-red.png)
+```{image} media/term-status-red.png
+:width: 800px
+:align: center
+```
 
-````{admonition} raccourcis
+`````{admonition} raccourcis
 :class: seealso dropdown
+
+````div
 lors des installations on vous a fait faire 
 ```bash
 git config --global alias.l "log --oneline --graph"
@@ -295,6 +309,7 @@ git config --global alias.s "status"
 ```
 et après cela vous pouvez taper juste `git s` comme un raccourci de `git status`
 ````
+`````
 
 +++
 
@@ -358,7 +373,10 @@ git add readme.md
 
 Que vous dit `git` ? Rien ! Il n'est pas très locace. Comment pouvons nous voir ce qui s'est passé ? oui en demandant le statut du repo avec `git status` !! Alors voilà j'ai vraiment besoin d'une copie d'écran, les couleurs sont très importantes:
 
-![](media/term-status-green-red.png
+```{image} media/term-status-green-red.png
+:width: 800px
+:align: center
+```
 
 Voilà, maintenant `git status` vous montre
 
@@ -383,7 +401,10 @@ vous devez voir :
 * que les deux fichiers apparaissent maintenant en vert dans la section *Changes to be committed*
 * et enfin qu'il n'y a plus de *untracked files*
 
-![](media/term-status-green.png)
+```{image} media/term-status-green.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -417,7 +438,10 @@ Donc nous y voilà, `git` a une commande `commit`, pour créer un commit; pour l
   * sauver le fichier en question
   * et pour valider: **fermer l'onglet** de vs-code - typiquement avec la petite croix, comme ceci
  
-  ![](media/vscode-edit-message.png)
+  ```{image} media/vscode-edit-message.png
+  :width: 800px
+  :align: center
+  ```
 
   et dès que vous avez fait tout cela, la commande dans le terminal - qui est restée bloquée en attendant le message - va continuer son travail et vous rendre la main
 
@@ -451,7 +475,10 @@ $ git commit -m"licence+readme"
  create mode 100644 readme.md
 ```
 
-![](media/term-first-commit.png)
+```{image} media/term-first-commit.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -520,7 +547,10 @@ désigner le dernier commit**.
 
 +++ {"cell_style": "split"}
 
-![](media/kn-refs-branche-courante.svg)
+```{image} media/kn-refs-branche-courante.svg
+:width: 500px
+:align: center
+```
 
 +++
 
@@ -596,7 +626,10 @@ Faisons `git status` afin de comprendre
 git status
 ```
 
-![](media/term-status-tracked-files.png)
+```{image} media/term-status-tracked-files.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -611,7 +644,10 @@ Nous voyons là les trois états des **fichiers** de notre répertoire courant:
 
 Nous pouvons maintenant décrire les **3 morceaux** de notre répertoire git:
 
-![](media/kn-repo-contents-3-add-index-commit.svg)
+```{image} media/kn-repo-contents-3-add-index-commit.svg
+:width: 800px
+:align: center
+```
 
    - l'`espace de travail` avec tous les fichiers au sens usuel (ce que vous voyez dans l'explorateur de fichiers et dans votre éditeur de code), qui peuvent contenir un certain nombre de modifications par rapport au dernier commit
    - l'`index` (ou `stage`) dans lequel on ajoute - avec `add` - certaines de ces modifications - et pas forcément toutes; l'index sert à **préparer le prochain commit**; dit autrement, quand on crée un commit, on fait un snapshot de ce qu'il y a dans l'index;
@@ -777,7 +813,10 @@ git log --oneline
 avec les raccourcis préconisés vous pouvez faire juste `git l` qui va vous donner un listing très voisin (il y a juste l'option `--graph` en plus dans cet alias)
 ````
 
-![](media/term-log-oneline.png)
+```{image} media/term-log-oneline.png
+:width: 500px
+:align: center
+```
 
 +++
 
@@ -821,7 +860,10 @@ Voici une illustration; on a anticipé un petit peu, on a imaginé le cas où la
 
 +++ {"cell_style": "split"}
 
-![](media/kn-refs-head.svg)
+```{image} media/kn-refs-head.svg
+:width: 500px
+:align: center
+```
 
 +++ {"cell_style": "split"}
 
@@ -1001,7 +1043,10 @@ Du fait de la présence de l'`index`, il y a deux classes de différences
 
 la commande `git diff` vient en deux versions (avec ou sans l'argument `--cached`) qui permettent de montrer ces deux classes de différences
 
-![](media/kn-diffs.svg)
+```{image} media/kn-diffs.svg
+:width: 800px
+:align: center
+```
 
 ````{admonition} diff --cached ou diff --staged
 :class: dropdown seealso 
@@ -1030,7 +1075,10 @@ Regardons maintenant la sortie de `git diff` sur `fact.py`, qui a été **modifi
 git diff fact.py
 ```
 
-![](media/term-diff.png)
+```{image} media/term-diff.png
+:width: 500px
+:align: center
+```
 
 La sortie de `git diff` contient
    - en **- rouge** les lignes supprimées (ici `pass`)
@@ -1068,7 +1116,10 @@ Le `diff` entre l'`index` et le commit courant montre les différences:
 git diff --cached fact.py
 ```
 
-![](media/term-diff-cached.png)
+```{image} media/term-diff-cached.png
+:width: 500px
+:align: center
+```
 
 La situation est exactement l'inverse que tout à l'heure :
 
@@ -1101,13 +1152,19 @@ Le `.` permet que `vs-code` *voit* votre répertoire courant.
 J'arrive sur l'écran habituel où je localise l'*extension git* sur le coté gauche (pas besoin d'installation spécifique)   
 J'active cette extension en cliquant la zone indiquée par la flèche rouge
 
-![](media/vscode-welcome.png)
+```{image} media/vscode-welcome.png
+:width: 800px
+:align: center
+```
 
 +++
 
 Et je vois ceci - je rappelle qu'on a tous les changements de `fact.py` dans l'index :
 
-![](media/vscode-2-changes-areas.png)
+```{image} media/vscode-2-changes-areas.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -1127,7 +1184,10 @@ remarquez le bouton marqué `-` (entouré); c'est un bouton qui permet de défai
 
 nous n'avons pas encore appris à faire ça avec la ligne de commandes, mais amusons-nous à le faire, on clique sur ce bouton et maintenant on voit ceci
 
-![](media/vscode-change-unstaged.png)
+```{image} media/vscode-change-unstaged.png
+:width: 800px
+:align: center
+```
 
 cette fois on ne voit plus qu'une rubrique - pas forcément très cohérent comme choix de la part de vs-code - comme l'index est vide, on ne nous affiche pas du tout la rubrique *Staged Changes*
 
@@ -1186,13 +1246,17 @@ $ git log --oneline --graph
 
 Alors pour l'instant ça ne fait que d'ajouter une petite étoile sur le coté gauche, mais c'est ça qui nous permettra de bien suivre les branches lorsqu'on en verra ! (*Notons qu'entre une figure et une autre, les `sha-1` peuvent ne pas être cohérents: les figures proviennent de plusieurs essais de repos).*
 
-![](media/term-log-graph.png)
+```{image} media/term-log-graph.png
+:width: 800px
+:align: center
+```
 
 +++
 
-````{admonition} raccourcis
+`````{admonition} raccourcis
 :class: dropdown seealso
 
+````{div}
 Sachez que vous pouvez (facilement) définir des raccourcis dans la configuration globale de `git`.
 
 Par exemple si je veux taper `git lg` à la place de `git log --oneline -- graph`,
@@ -1209,10 +1273,12 @@ Du coup c'est plus rapide à utiliser:
 git l
 ```
 
-![](media/term-alias-oneline-graph.png)
-
-
+```{image} media/term-alias-oneline-graph.png
+:width: 800px
+:align: center
+```
 ````
+`````
 
 +++
 
@@ -1224,7 +1290,10 @@ Pour illustrer un peu mieux, voyons un graphe un peu plus intéressant - on ne s
 
 +++ {"cell_style": "split"}
 
-![](media/kn-commit-parents.svg)
+```{image} media/kn-commit-parents.svg
+:width: 200px
+:align: center
+```
 
 +++ {"cell_style": "split"}
 
@@ -1311,9 +1380,10 @@ Vous remarquez que lorsqu'on passe, à `git log`, l'avant-avant-dernier commit (
 
 +++ {"cell_style": "split"}
 
-````{admonition} pour naviguer dans les branches
+`````{admonition} pour naviguer dans les branches
 :class: dropdown seealso
 
+````{div}
 Nous avons vu qu'un commit peut avoir deux parents. Avec `~` on ne peut pas atteindre le second parent. Cela se fera fait en  utilisant `^`.
 
 `^` est un peu particulier:
@@ -1338,8 +1408,12 @@ autrement dit,
 
 ce qui est illustré sur cette figure
 
-![](media/kn-commit-navigation.svg)
+```{image} media/kn-commit-navigation.svg
+:width: 300px
+:align: center
+```
 ````
+`````
 
 +++
 
@@ -1382,7 +1456,10 @@ $ git branch
 * main
 ```
 
-![](media/term-branch.png)
+```{image} media/term-branch.png
+:width: 500px
+:align: center
+```
 
 +++
 
@@ -1402,7 +1479,10 @@ $ git branch
 * main
 ```
 
-![](media/term-branch-devel.png)
+```{image} media/term-branch-devel.png
+:width: 500px
+:align: center
+```
 
 +++
 
@@ -1416,8 +1496,10 @@ e2c02ca (devel) première implémentation de factorielle dans le fichier fact.py
 01b0604 licence+readme
 ```
 
-
-![](media/term-head-main-devel.png)
+```{image} media/term-head-main-devel.png
+:width: 800px
+:align: center
+```
 
 mais dans votre répertoire, le contenu de nos fichiers, dans notre espace de travail, est resté inchangé:
 ```bash
@@ -1478,7 +1560,10 @@ def fact (n):
     pass
 ```
 
-![](media/term-before-switch.png)
+```{image} media/term-before-switch.png
+:width: 800px
+:align: center
+```
 
 
 ON LE FAIT
@@ -1508,7 +1593,10 @@ $ git log --oneline --graph --all
 ```
 
 
-![](media/term-after-switch.png)
+```{image} media/term-after-switch.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -1585,7 +1673,10 @@ $ git log --all --oneline --graph
 * 01b0604 licence+readme
 ```
 
-![](media/term-log-fork-all.png)
+```{image} media/term-log-fork-all.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -1611,7 +1702,10 @@ exercice: on enleve le `--all` de la commande. Que remarquez vous ?
 
 d'après vous, pourquoi ça se comporte comme ça ?
 
-![](media/term-log-fork.png)
+```{image} media/term-log-fork.png
+:width: 800px
+:align: center
+```
 ````
 
 +++
@@ -1691,7 +1785,10 @@ $ git log --all --oneline --graph
 * 01b0604 licence+readme
 ```
 
-![](media/term-first-merge.png)
+```{image} media/term-first-merge.png
+:width: 800px
+:align: center
+```
 
 +++
 
@@ -1701,13 +1798,17 @@ Regardons la différence entre `devel` et `main`
 git diff devel main
 ```
 
-![](media/term-diff-devel-main.png)
+```{image} media/term-diff-devel-main.png
+:width: 600px
+:align: center
+```
 
 +++
 
-````{admonition} octopus merge
+`````{admonition} octopus merge
 :class: dropdown information
 
+````{div}
 pour information, on peut même donner à `git merge` plusieurs commits; si on tape par exemple
 
 ```console
@@ -1716,12 +1817,14 @@ git merge commit1 commit2 commit3
 
 on va créer un commit qui aura 4 parents, dans l'ordre le commit courant, puis `commit1`, `commit2` et `commit3`; une fusion de plus de deux branches d'appelle un *octopus-merge*
 ````
+`````
 
 +++
 
-````{admonition} pour les curieux
+`````{admonition} pour les curieux
 :class: dropdown attention
 
+````{div}
 pour les curieux, je vous invite à vérifier que tout s'est bien passé; et pour ça on peut utiliser `git diff` à nouveau, mais entre plusieurs commits (faire `git diff --help` pour plus d'information)
 
 on pourrait vérfier par exemple que
@@ -1735,6 +1838,7 @@ git diff HEAD~2 HEAD^2
 
 donnent les mêmes résultats; pourquoi ?
 ````
+`````
 
 +++
 
@@ -1749,4 +1853,7 @@ voir le notebook suivant, qui contient
 
 Et pour conclure ...
 
-![](media/xkcd-git.png)
+```{image} media/xkcd-git.png
+:width: 500px
+:align: center
+```
