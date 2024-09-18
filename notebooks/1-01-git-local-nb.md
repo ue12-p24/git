@@ -1644,7 +1644,7 @@ En fait vous avez tous les éléments pour répondre:
 
 +++
 
-on va le faire mais pour l'instant, on va choisir de faire une modification dans un autre fichier que `fact.py`, **pour éviter** ce qu'on appelle **un conflit**; on en reparlera le moment venu...
+on va le faire mais pour l'instant, on va choisir de faire une modification dans un autre fichier que `fact.py`, pour être tout à fait sûr **d'éviter** ce qu'on appelle **un conflit**; on en reparlera le moment venu...
 
 par exemple on va modifier la licence; pour ça, utilisez par exemple votre éditeur de code, pour mettre dans `licence.txt` le contenu suivant :
 
