@@ -64,7 +64,10 @@ on rappelle aussi d'ailleurs, dans un autre registre, qu'il est sage de lancer l
 
 une fusion *fast-forward*, c'est le cas où **le commit courant est déjà un parent** (transitivement) de `to-merge`; comme par exemple ici:
 
-![](media/kn-merge-fast-forward.svg)
+```{image} media/kn-merge-fast-forward.svg
+:width: 500px
+:align: center
+```
 
 * la branche courante est `main` (et c'est pour ça qu'elle est encadrée en rouge), et on fusionne avec le commit `devel`
 * on cherche donc à créer un commit qui contienne à la fois de code de `main` et de `devel`
@@ -297,7 +300,10 @@ ouh là, il n'a pas l'air content !
 
 ce qui se passe, c'est ceci
 
-![](media/kn-merge-conflict.svg)
+```{image} media/kn-merge-conflict.svg
+:width: 700px
+:align: center
+```
 
 * les changements faits dans la zone "chacun chez soi" peut être fusionnés sans souci
 * par contre comme les deux branches ont modifié la ligne de total chacune de leur côté  

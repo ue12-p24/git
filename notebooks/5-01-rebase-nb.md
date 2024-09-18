@@ -40,7 +40,10 @@ il s'agit de `rebase`, qui est en quelque sorte une alternative à `merge`, mais
 
 voyons ça sur un exemple abstrait; voici pour commencer le résultat d'un merge dans une situation typique; on n'est pas dans un *fast-forward*, le merge fabrique donc un commit de fusion, on a compris comment ça marche (on suppose ici qu'il n'y a pas de conflits naturellement)
 
-![](media/kn-merge.svg)
+```{image} media/kn-merge.svg
+:width: 700px
+:align: center
+```
 
 +++
 
@@ -50,7 +53,10 @@ voyons ça sur un exemple abstrait; voici pour commencer le résultat d'un merge
 
 voici ce que produirait un `git rebase` dans la même configuration
 
-![](media/kn-rebase.svg)
+```{image} media/kn-rebase.svg
+:width: 700px
+:align: center
+```
 
 +++
 
