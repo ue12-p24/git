@@ -151,7 +151,7 @@ https://docs.github.com/en/github/writing-on-github/autolinked-references-and-ur
 +++
 
 Clonez ce dépôt et suivez les instructions du README:
-https://github.com/ue12-p24/git-tp-add-by-lines
+<https://github.com/ue12-p24/git-tp-add-by-lines>
 
 +++
 
