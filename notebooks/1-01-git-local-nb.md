@@ -35,6 +35,17 @@ assurez-vous d'exécuter toutes les cellules avec *Run* -> *Run All Cells*
 
 +++
 
+````{admonition} une sandbox avec learngitbranching.js
+:class: tip
+
+pour expérimenter de manière interactive et graphique, on pourra avoir recours à cette *sandbox*  
+
+<a href="https://learngitbranching.js.org/?NODEMO" target="_"><code>https://learngitbranching.js.org/?NODEMO</code></a>
+
+````
+
++++
+
 ## on contextualise
 
 +++
@@ -994,6 +1005,19 @@ git log --oneline
 
 +++
 
+````{admonition} le repo dans learngitbranching.js
+:class: tip
+
+<a 
+href="https://learngitbranching.js.org/?NODEMO&command=git%20commit" 
+target=_>
+pour reproduire l'état actuel dans une *sandbox*, cliquez ici
+</a>
+
+````
+
++++
+
 ## fichiers du repo `git ls-files`
 
 +++
@@ -1802,6 +1826,19 @@ git diff devel main
 :width: 600px
 :align: center
 ```
+
++++
+
+````{admonition} le repo dans learngitbranching.js
+:class: tip
+
+<a 
+href="https://learngitbranching.js.org/?NODEMO?command=git%20commit;git%20commit;git%20switch%20-c%20devel%20HEAD%5E;git%20commit;git%20merge%20main" 
+target=_>
+pour reproduire l'état actuel dans une *sandbox*, cliquez ici
+</a>
+
+````
 
 +++
 
