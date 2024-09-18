@@ -164,6 +164,24 @@ Nous créons un fichier `readme.md` en redirigeant, avec `>` une chaîne de cara
 
 +++
 
+`````{admonition} à propos de vs-code: Git Graph
+:class: dropdown tip
+
+````{div}
+vs-code vient avec une extension Git *builtin* (rien besoin d'installer)  
+toutefois il y a une extension qui est **très utile**: cherchez dans les extensions vs-code le mot `Git Graph` et installez-là si nécessaire
+
+c'est avec cette extension que nous avons fait les *screenshots* qui apparaissent au fil du notebook; pour l'installer:
+
+```{image} media/git-graph-install.png
+:width: 300px
+:align: center
+```
+````
+`````
+
++++
+
 ```bash
 echo "ce répertoire est réservé à l'implémentation d'une fonction factorielle" > readme.md
 ```
@@ -497,6 +515,17 @@ N'essayons pas de comprendre les messages trop cryptiques, nous y reviendrons pl
 
 +++
 
+`````{admonition} le repo vu depuis Git Graph à ce stade
+````{div}
+```{image} media/git-graph-1-commit.png
+:width: 600px
+:align: center
+```
+````
+`````
+
++++
+
 ## réparer la perte de fichiers
 
 +++
@@ -742,6 +771,17 @@ $ git commit -m"informations sur la licence"
 
 +++
 
+`````{admonition} le repo vu depuis Git Graph à ce stade
+````{div}
+```{image} media/git-graph-2-commit.png
+:width: 600px
+:align: center
+```
+````
+`````
+
++++
+
 ## `git log`
 
 +++
@@ -938,6 +978,17 @@ e2c02ca (HEAD -> main) première implémentation de factorielle dans le fichier 
 31c4816 informations sur la licence
 01b0604 licence+readme
 ```
+
++++
+
+`````{admonition} le repo vu depuis Git Graph à ce stade
+````{div}
+```{image} media/git-graph-3-commit.png
+:width: 600px
+:align: center
+```
+````
+`````
 
 +++
 
@@ -1258,6 +1309,17 @@ dans les deux cas, utilisez  `git status` et `git log` pour vérifier que votre 
 
 +++
 
+`````{admonition} le repo vu depuis Git Graph à ce stade
+````{div}
+```{image} media/git-graph-4-commit.png
+:width: 600px
+:align: center
+```
+````
+`````
+
++++
+
 ## le graphe des commits `git log --graph`
 
 +++
@@ -1499,7 +1561,6 @@ Du coup pour créer la branche `devel` sur le parent de `HEAD` on peut écrire
 $ git branch devel HEAD~
 $ git branch
   devel
-
 * main
 ```
 
@@ -1507,6 +1568,17 @@ $ git branch
 :width: 500px
 :align: center
 ```
+
++++
+
+`````{admonition} le repo vu depuis Git Graph à ce stade
+````{div}
+```{image} media/git-graph-5-newbranch.png
+:width: 600px
+:align: center
+```
+````
+`````
 
 +++
 
@@ -1624,6 +1696,17 @@ $ git log --oneline --graph --all
 
 +++
 
+`````{admonition} le repo vu depuis Git Graph à ce stade
+````{div}
+```{image} media/git-graph-6-switched.png
+:width: 600px
+:align: center
+```
+````
+`````
+
++++
+
 Donc ce qu'il faut remarquer, c'est
 
 * en premier que **nos fichiers ont changé** - ici `fact.py` est revenu en arrière
@@ -1716,6 +1799,17 @@ c'est ici que vous pouvez commencer à voir en pratique l'intérêt de la notion
   * les autres branches sont inertes  
 
   est toujours à l'oeuvre à l'identique
+
++++
+
+`````{admonition} le repo vu depuis Git Graph à ce stade
+````{div}
+```{image} media/git-graph-7-commit.png
+:width: 600px
+:align: center
+```
+````
+`````
 
 +++
 
@@ -1813,6 +1907,17 @@ $ git log --all --oneline --graph
 :width: 800px
 :align: center
 ```
+
++++
+
+`````{admonition} le repo vu depuis Git Graph à ce stade
+````{div}
+```{image} media/git-graph-8-merge.png
+:width: 600px
+:align: center
+```
+````
+`````
 
 +++
 
