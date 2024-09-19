@@ -126,11 +126,7 @@ ce qui permet alors à - notamment - `git log --oneline` de présenter un résum
 
 +++
 
-***
-
-+++
-
-### spécifique à github
+### tags spécifiques à github
 
 Lorsqu'on utilise une plateforme comme github, il est fréquent de mentionner dans le message des références à d'autres événements du projet.
 
@@ -143,6 +139,58 @@ ainsi si par exemple l'*issue* numéro 123 signale un bug, et qu'on commite une 
 
 On peut référencer de cette façon toutes sortes d'objets autres que les *issues*, voir les détails ici :
 https://docs.github.com/en/github/writing-on-github/autolinked-references-and-urls
+
++++
+
+## pour bien utiliser `add`
+
++++
+
+### ne pas faire `git add .`
+
+si vous faites `git add .` (ou n'importe quel dossier), il va ajouter **tous les fichiers** inclus récursivement dans le dossier, y compris les **fichiers et dossiers cachés** !
+
+````{admonition} exemple typique
+
+vous venez de faire un exercice avec jupyter lab, qui a créé un dossier caché `.ipynb_checkpoints` - dont vous ne soupçonniez même pas l'existence  
+eh bien si à ce stade vous faite `git add .` tous les fichiers de ce dossier vont se retrouver ajouté dans l'index ! 
+
+et c'est totalement sous-optimal !
+
+```{admonition} la bonne façon
+
+ajoutez **seulement des fichiers**  
+(ce qui ne vous empêche pas de faire `git add *.py` par exemple)
+```
+````
+
++++
+
+### `git add -u`
+
+c'est une forme très utile de `git add`, qui permet d'ajouter **tous les fichiers connus du repo** mais pas les autres !
+
+`````{admonition} exemple typique
+
+vous avez clôné un repo de cours, et vous avez exécuté certains notebooks localement pour un exercice ou autre  
+à ce stade vous essayez de faire `git pull` pour incorporer des changements faits par le prof, **mais** git se plaint et vous parle de *would overwrite local changes blabla...*
+
+
+````{admonition} la bonne façon
+
+vous commencez par `commit` vos propres changements, et pour ça:
+```bash
+git add -u
+git commit -m "j'ai fait l'exercice #3"
+```
+et ensuite vous pouvez faire le `git pull`
+````
+`````
+
+
+````{admonition} pourquoi c'est pratique
+parce que ça permet de ne `add` que les fichiers originellement dans le repo, sans polluer, à nouveau, votre repo avec des scories diverses; et sans avoir à en construire la liste explicite
+````
 
 +++
 
@@ -181,9 +229,12 @@ from ipywidgets import Video
 Video.from_file("_static/sourcetree-line-by-line.mp4", autoplay=False)
 ```
 
-***
+## le point de vue de xkcd sur les messages :)
 
 et pour finir voici ce que xkcd a à dire sur les messages de commit ;)  
 (il les représente dans l'autre sens, les derniers en bas...)
 
-![](media/xkcd-git-commit.png)
+```{image} media/xkcd-git-commit.png
+:width: 500px
+:align: center
+```

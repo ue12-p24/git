@@ -1993,7 +1993,7 @@ voir le notebook suivant, qui contient
 
 +++
 
-Et pour conclure ...
+## et pour conclure avec xkcd :)
 
 ```{image} media/xkcd-git.png
 :width: 500px
