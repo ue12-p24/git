@@ -174,8 +174,24 @@ si au moment du pull, vous voyez ce message:
 cela signifie qu'**il y a des conflits** (par exemple, vous avez fait
 *localement* dans un fichier des modifications **au même endroit** que des
 changements faits par le prof); normalement c'est assez
-rare, mais si c'est le cas, il va vous falloir régler les conflits; voici
-comment les résoudre:
+rare, mais si c'est le cas, il va vous falloir régler les conflits...  
+
+deux options à ce stade
+
+#### chicken out
+
+tout ça vous fait peur, vous voulez juste abandonner:
+
+```bash
+git merge --abort
+```
+
+et vous revenez à votre commit, *no harm done*  
+(et rien ne vous empêche de recommencer plus tard)
+
+#### résoudre les conflits
+
+sinon voici comment on résoud les conflits:
 
 * après le `git pull`, faites un `git status`
 * les fichiers en rouge dans la catégorie `unmerged paths` correspondent à ceux
