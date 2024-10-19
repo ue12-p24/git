@@ -168,6 +168,30 @@ dans l'écran de création du PR, il y a un bouton ***"compare across forks"*** 
 ````
 
 +++
+## tp-pull-request-repo-unique
+
+un TP à faire à deux  
+
+* élève `A` crée un repo sur github, avec du contenu; le repo est **public**
+* pour la suite, c'est essentiellement élève `B` qui bosse, élève `A` peut profitablement regarder :)
+* élève `B` clone le repo.
+* élève `B` ouvre une nouvelle **branche** `feature-eleve-b` et fait une modification et la met dans un commit
+* élève `B` essaie de pousser son nouveau commit dans le github de `A`, mais échoue car il n'a pas les droits
+* élève `A` donne des droits à l'élève `B` : via Settings/Collabateurs sur le repository du projet. Trouver l'option 'Manage access'/'Add people'
+* élève `B` accepte l'invitation pour travailler sur le repository de l'élève `A`
+* élève `B` pousse son commit et sa branche sur le repository de l'élève `A`
+* élève `B` crée (dans le repo de `A`) un *pull request**
+* élève `A` consulte le pull request, et accepte (merge) le changement
+* on vérifie que la modification de `B` est bien dans le repo de `A`
+
+* élève `A` peut effectuer la même procedure en commitant sur la branche qu'il créé `feature-eleve-a`
+
+Certain workflow impose que tous les changements soient fait via une Pull Request. On souhaite alors 'protéger' la branche principale `main` contre les commits directs. Pour se faire :
+
+* élève `A` va dans les Settings/Branches du repository et click sur l'option 'Add classic branch protection rule'. La branche à protéger est 'main'. Séléctionner l'option 'Require a pull request before merging' et 'Require a pull request before merging'
+* élève `A` et l'élève `B` essaient de pousser un changement/commit directement sur `main`. Que se passe-t-il ?
+
++++
 
 ## tp-class-text
 
