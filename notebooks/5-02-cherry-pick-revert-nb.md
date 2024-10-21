@@ -211,6 +211,7 @@ gitGraph
 dans lequel le contenu des commit `HEAD` et `HEAD~2` est identique  
 mais cette approche a l'avantage de, à nouveau, laisser dans l'historique une trace de cette expérience
 
-````{note}
+````{admonition} pas forcément le dernier
+
 ici on a vu comment défaire le tout dernier commit, mais on peut tout aussi bien défaire un commit plus ancien naturellement
 ````

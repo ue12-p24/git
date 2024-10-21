@@ -24,7 +24,9 @@ HTML(filename="_static/style.html")
 
 # synchro entre dépôts : tirer
 
-````{note}
+````{admonition} lire les vidéos dans Jupyter lab
+:class: tip
+
 ce notebook contient des vidéos; si vous le lisez dans Jupyter, pour que les vidéos s'affichent:  
 assurez-vous d'exécuter toutes les cellules avec *Run* -> *Run All Cells*
 ````
@@ -37,7 +39,7 @@ assurez-vous d'exécuter toutes les cellules avec *Run* -> *Run All Cells*
 
 ### jusqu'ici on est resté local
 
-jusqu'ici on a abordé `git` du point de vue "usage local"; on a créé tous nos commits et branches nous-mêmes, on n'a eu à aucun moment besoin du réseau.
+**jusqu'ici** on a abordé `git` du point de vue **"usage local"**; on a créé tous nos commits et branches localement, on n'a eu à **aucun moment besoin du réseau**.
 
 notez que même dans ce cadre délibérément limité, `git` remplit déjà plein de fonctions super utiles :
 
@@ -53,17 +55,22 @@ notez que même dans ce cadre délibérément limité, `git` remplit déjà plei
 
 mais bien sûr, on l'a vu dans les slides d'introduction, on peut aussi utiliser git pour travailler à plusieurs
 
-![](media/kn2-synchro-overview.svg)
+```{image} media/kn2-synchro-overview.svg
+:align: center
+```
 
 ````{admonition} le réseau
 :class: note
 
 pour ça, on va **utiliser le réseau pour synchroniser deux dépôts**
+
+l'architecture ci-dessus n'est pas la seule possible, mais c'est un cas hyper fréquent:  
+le repo au milieu est hébergé sur github, il sert de relais entre les ordis de bob et d'alice, qui du coup n'ont pas besoin de communiquer entre eux directement
 ````
 
 +++
 
-### aller chercher
+## aller chercher
 
 en réalité il y a très peu de commandes de git qui tombent dans la catégorie des synchros entre dépôts
 
@@ -78,14 +85,25 @@ et du coup en passant on va parler aussi de `git fetch` qui est, si on veut, un 
 
 ## `git clone`
 
-on a déjà parlé de cette commande, c'est celle qui permet en partant de rien, de dupliquer un dépôt, typiquement trouvé sur github; le fonctionnement est simple, et peut être illustré comme ceci
+mais pour commencer, voyons `git clone`; on a rencontré et même déjà utilisé cette commande, c'est celle qui permet en partant de rien, de dupliquer un dépôt, typiquement trouvé sur github; le fonctionnement est simple, et peut être illustré comme ceci
+
+````{admonition} rappel: toujours utiliser les URLs en SSH
+
+````
 
 ```{code-cell}
-:tags: [remove-input]
-
+---
+slideshow:
+  slide_type: ''
+tags: []
+---
 %%python
 from ipywidgets import Video
-Video.from_file("_static/Clone.mp4", autoplay=False)
+Video.from_file("_static/Clone.mp4", autoplay=False, loop=False)
+```
+
+```{code-cell}
+
 ```
 
 * dans un premier temps on duplique le graphe des commits, y compris le commit courant
@@ -132,15 +150,22 @@ interprétons cette réponse sybilline :
   car il y a toutes les chances qu'on ait de nouveau à échanger avec lui  
   et lui donne par convention le nom de **`origin`**
 
-dans notre cas, ce dépôt, c'est bien sûr celui sur github - ça pourrait être quoi d'autre ?
+````{admonition} ce qu'il faut bien comprendre
+
+* dans notre cas, ce dépôt, c'est bien sûr celui sur github - ça pourrait être quoi d'autre ?
+* et surtout, ce nom `origin` en fait c'est **juste un alias** pour l'URL  
+  `git@github.com:ue12-p24/git-sandbox.git`
+
+on va pouvoir utiliser ce nom à chaque fois qu'on voudra utiliser une commande de synchronisation, comme `push`, `pull`, enfin tout ce qu'on va voir tout de suite
+````
 
 +++
 
-d'ailleurs pour vérifier on peut faire
+d'ailleurs pour le vérifier, on peut faire
 
 ```bash
 $ git remote get-url origin
-https://github.com/ue12-p24/git-sandbox
+git@github.com:ue12-p24/git-sandbox.git
 ```
 
 +++
@@ -149,10 +174,12 @@ https://github.com/ue12-p24/git-sandbox
 :class: note
 
 le remote `origin` est créé par `git clone`  
-c'est pourquoi lorsqu'on procède dans l'autre sens (un repo créé localement qu'on veut pousser sur github),
+c'est pourquoi lorsqu'on procède dans l'autre sens (un repo créé localement qu'on veut ensuite pousser sur github),
 la formule proposée par github comporte justement la création manuelle du remote origin
 
-![](media/git-remote-add.png)
+```{image} media/git-remote-add.png
+:align: center
+```
 ````
 
 +++
@@ -163,18 +190,29 @@ la formule proposée par github comporte justement la création manuelle du remo
 
 une fois qu'on a cloné, on est redevenu totalement autonome; on pourrait par exemple couper le réseau, on a tout ce qu'il faut localement pour modifier le code, on peut travailler dans son coin, et créer localement des commits si on en a besoin
 
-ça n'empêche pas que de temps en temps on a envie d'aller voir s'il n'y a pas eu des nouveautés; pour ça on va retourner demander au dépôt initial s'il y a du nouveau
+ça n'empêche pas que de temps en temps on a envie d'aller voir s'il n'y a pas eu des nouveautés; pour ça on va retourner **demander au dépôt initial s'il y a du nouveau**
 
 pour ça la deuxième commande de synchronisation qu'on est amené à utiliser lorsqu'on a cloné un dépôt, c'est `git pull`
 
-on regarde son fonctionnement illustré dans une vidéo (dans le prolongement du clip précédent)
+le `pull` va procéder en deux temps:
+
+- `fetch` va aller chercher les éventuels nouveaux commits
+- et s'il y a du nouveau, on va faire `merge` dans le commit courant
+
+et commençons par regarder son fonctionnement illustré dans une vidéo (dans le prolongement du clip précédent)  
+
+````{admonition} comme toujours: on part d'un repo propre
+:class: dropdown
+
+on fait ici l'hypothèse qu'on n'a pas touché à notre repo local, et que donc il est propre
+````
 
 ```{code-cell}
 :tags: [remove-input]
 
 %%python
 from ipywidgets import Video
-Video.from_file("_static/Pull.mp4", autoplay=False)
+Video.from_file("_static/Pull.mp4", autoplay=False, loop=False)
 ```
 
 pour résumer, on peut dire que
@@ -183,6 +221,13 @@ pour résumer, on peut dire que
 :class: note
 
 `git pull` = `git fetch` + `git merge`
+
+
+```{admonition} ou rebase..
+:class: dropdown warning
+
+pour les geeks, sachez qu'on peut aussi demander à `pull` de faire plutôt `fetch` + `rebase`, mais c'est une autre histoire...
+```
 ````
 
 +++
@@ -191,8 +236,7 @@ pour résumer, on peut dire que
 
 le premier point important à retenir, c'est que
 
-* `git fetch` est une opération **totalement inoffensive**  
-  en ce sens qu'elle n'a **pas d'impact** sur l'état de notre dépôt  
+* `git fetch` est une opération **totalement inoffensive**, elle n'a **pas d'impact** sur l'état de notre dépôt  
   (commit courant + index + fichiers)
 
 * **dans un `pull` par contre**, c'est la partie `merge` - qu'on a déjà étudiée  
@@ -226,7 +270,7 @@ dit autrement, si vous ne faites jamais ni `git pull` ni `git fetch` pendant un 
 
 en pratique on fait plus souvent `git pull` que `git fetch`, car bien sûr souvent ce qu'on veut faire c'est se mettre à jour; et mon opinion c'est que c'est un peu dommage, car le fait de faire d'abord `fetch` permet de bien évaluer l'impact que va avoir le `pull` (notamment : est-ce un fast-forward ?)
 
-une fois qu'on a dit ça, si vous utilisez une GUI comme `Sourcetree` ou `Fork` ou `Tower` ou autre, il y a de fortes chances qu'elle fasse pour vous un `git fetch` **automatiquement** - genre toutes les 5 minutes; c'est très pratique car ça permet, justement, de recevoir des notifications lorsqu'il y a du nouveau dans le dépôt *upstream*
+une fois qu'on a dit ça, si vous utilisez une GUI comme `Sourcetree` ou `Fork` ou `Tower` ou autre, il y a de fortes chances qu'elle fasse pour vous un `git fetch` **automatiquement** - genre toutes les 5 minutes; et c'est très pratique car ça permet, justement, de recevoir des notifications lorsqu'il y a du nouveau dans le dépôt *upstream*
 ````
 
 +++
@@ -241,33 +285,48 @@ la troisième chose à retenir est que, puisque `pull` finit par faire un `merge
   je me retrouve sur **le même commit** que le remote
 
 * par contre, si entre temps j'avais fait un commit de mon côté, alors là le merge va **créer un commit de fusion**  
-  ça va sans dire, mais forcément le commit de fusion est créé **dans mon dépôt** hein, forcément  
+  ça va sans dire, mais forcément le commit de fusion est créé **dans mon dépôt** bien entendu  
   on est en train de faire un `pull`, on n'est pas du tout en train d'essayer de toucher au dépôt distant  
-  (dans lequel, de toutes façons, on n'a pas forcément le droit d'écrire en plus)
+  (dans lequel, de toutes façons, on n'a pas forcément le droit d'écrire, en plus)
+
++++
+
+dans cette vidéo on va illustrer le cas où, cette fois, j'ai fait un commit de mon coté avant de `pull`:
 
 ```{code-cell}
 :tags: [remove-input]
 
 %%python
 from ipywidgets import Video
-Video.from_file("_static/PullDiverge.mp4", autoplay=False)
+Video.from_file("_static/PullDiverge.mp4", autoplay=False, loop=False)
 ```
 
-### quelques détails
+### *tracking branch* (optionnel)
 
-le plus souvent pour les débutants, il n'y a qu'un seul remote et il s'appelle `origin`  
-sachez que dans des configurations plus complexes on doit bien entendu préciser avec quel remote on veut se synchroniser :
+à ce stade de notre scénario, et pour faciliter la vie aux débutants, on peut en effet faire juste 
+```bash
+git pull
+```
+mais sachez qu'en réalité, c'est équivalent à
+```bash
+git pull origin main
+```
 
-* `git fetch` est en réalité un raccourci pour `git fetch origin`
-* `git pull` est en réalité un raccourci pour `git pull origin`  
-  ou encore `git pull origin main` puisqu'on est sur la branche main
+c'est la notion de *tracking branch*: on a associé la branche locale `main` à la branche distante `origin/main`, du coup c'est ce qui sert quand on est sur la branche `main` et qu'on fait juste `pull`
 
-+++
 
-````{admonition} pour les très avancés
-:class: seealso
+````{admonition} c'est dans la config
+:class: dropdown
 
-pour les très avancés, signalons enfin la notion de *tracking branch*  
-il y a quelque part dans la configuration du dépôt une information qui lie la branche locale `main` à la branche distante `main` du *remote* `origin`  
-grâce à cela, on n'a pas besoin d'être plus explicite, et quand on tape juste `git pull` on merge `origin/main` dans `main`
+les curieux peuvent regarder le contenu de `.git/config`, et observer notamment ceci
+```text
+[remote "origin"]
+	url = git@github.com:ue12-p24/git-sandbox.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+```
 ````
+
+on aura l'occasion d'en reparler très rapidement lorsqu'on aura vu le `push`

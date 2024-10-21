@@ -28,7 +28,9 @@ HTML(filename="_static/style.html")
 
 Une introduction didactique sur une première utilisation du logiciel de gestion de versions `git`.
 
-````{note}
+````{admonition} lire les vidéos dans Jupyter lab
+:class: tip
+
 ce notebook contient des vidéos; si vous le lisez dans Jupyter, pour que les vidéos s'affichent:  
 assurez-vous d'exécuter toutes les cellules avec *Run* -> *Run All Cells*
 ````
@@ -734,7 +736,7 @@ si on devait imaginer un *workflow* sans index, ça donnerait ceci :
 
 %%python
 from ipywidgets import Video
-Video.from_file("_static/NoIndex.mp4", autoplay=False)
+Video.from_file("_static/NoIndex.mp4", autoplay=False, loop=False)
 ```
 
 grâce à l'index on peut choisir quels changements mettre ou pas dans le commit :
@@ -744,7 +746,7 @@ grâce à l'index on peut choisir quels changements mettre ou pas dans le commit
 
 %%python
 from ipywidgets import Video
-Video.from_file("_static/WithIndex.mp4", autoplay=False)
+Video.from_file("_static/WithIndex.mp4", autoplay=False, loop=False)
 ```
 
 ## deuxième commit
@@ -1277,7 +1279,7 @@ enfin sachez qu'on peut parfaitement ajouter/enlever dans l'index des changement
 
 %%python
 from ipywidgets import Video
-Video.from_file("_static/vscode-line-by-line.mp4", autoplay=False)
+Video.from_file("_static/vscode-line-by-line.mp4", autoplay=False, loop=False)
 ```
 
 ça n'est clairement pas crucial à ce stade de maitriser cette technique, mais sachez que c'est quelque chose que les codeurs font de manière totalement routinière, car ça permet de faire **des commits qui ont du sens**, et non pas un ramassis de modifications qui ne sont pas reliées entre elles; on en reparlera...
@@ -1302,7 +1304,7 @@ Maintenant qu'on a bien compris les deux classes de changements dits "pendants",
 
 %%python
 from ipywidgets import Video
-Video.from_file("_static/vscode-commit.mp4", autoplay=False)
+Video.from_file("_static/vscode-commit.mp4", autoplay=False, loop=False)
 ```
 
 dans les deux cas, utilisez  `git status` et `git log` pour vérifier que votre dossier est identique au dernier commit (vous n'avez plus de changements pendants, dans aucune des deux catégories de changements) et que vous avez 4 commits

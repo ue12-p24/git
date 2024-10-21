@@ -28,7 +28,9 @@ HTML(filename="_static/style.html")
 
 Une notebook très court, où on revient rapidement sur la bonne façon de découper son code en commits, et de rédiger les messages qui vont avec.
 
-````{note}
+````{admonition} dans jupyter lab: pour lire les vidéos
+:class: tip
+
 ce notebook contient des vidéos; si vous le lisez dans Jupyter, pour que les vidéos s'affichent:  
 assurez-vous d'exécuter toutes les cellules avec *Run* -> *Run All Cells*
 ````
@@ -216,7 +218,7 @@ On a déjà parlé de cette feature dans vs-code, pour rappel:
 
 %%python
 from ipywidgets import Video
-Video.from_file("_static/vscode-line-by-line.mp4", autoplay=False)
+Video.from_file("_static/vscode-line-by-line.mp4", autoplay=False, loop=False)
 ```
 
 Pour information, on peut faire ce genre de choses également à partir d'outils 'graphiques' autour de `git`, comme par exemple avec `SourceTree` (qui est dispo sur Windows et Mac, malheureusement pas sur linux..)
@@ -226,7 +228,7 @@ Pour information, on peut faire ce genre de choses également à partir d'outils
 
 %%python
 from ipywidgets import Video
-Video.from_file("_static/sourcetree-line-by-line.mp4", autoplay=False)
+Video.from_file("_static/sourcetree-line-by-line.mp4", autoplay=False, loop=False)
 ```
 
 ## le point de vue de xkcd sur les messages :)

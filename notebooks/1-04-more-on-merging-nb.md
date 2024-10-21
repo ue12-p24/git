@@ -54,7 +54,9 @@ un commit qui **contienne à la fois le code courant et celui du commit `to-merg
 
 +++ {"tags": []}
 
-````{note}
+````{admonition} dans un repo propre
+:class: warning
+
 on rappelle aussi d'ailleurs, dans un autre registre, qu'il est sage de lancer la commande `git merge` **dans un dépôt  propre**, sans modifications pendantes
 ````
 
@@ -94,15 +96,20 @@ ici dans le premier exemple on avait `to-merge=C → B → HEAD=A`, donc pas bes
 
 +++ {"tags": []}
 
-````{admonition} dans l'autre sens
+`````{admonition} dans l'autre sens
 :class: dropdown seealso
 
+````{div}
 juste pour la curiosité, le cas se présente assez peu en pratique, mais que se passe-t-il d'après vous lorsque dans l'autre sens, on essaie de fusionner un parent ?
 
-![](media/kn-merge-anti-fast-forward.svg)
+```{image} media/kn-merge-anti-fast-forward.svg
+:width: 250px
+:align: center
+```
 
 la réponse : rien du tout ! pourquoi ?
 ````
+`````
 
 +++
 
@@ -130,7 +137,8 @@ mais à l'impossible nul n'est tenu ! et si les deux **branches touchent le mêm
 
 +++
 
-````{note}
+````{admonition} note
+
 **en première lecture, on recommande de zapper la partie suivante**  
 qui est de niveau intermédiaire, et de passer directement au résumé  
 vous pourrez vous y reporter plus tard, lorsque vous aurez besoin de gérer un conflit…
@@ -229,12 +237,14 @@ pour la deuxième version, on a besoin de créer la branche `dumbledore` et de r
    git switch -c dumbledore HEAD~
    ```
 
-````{note}
-:class: dropdown
+````{admonition} rappel: git switch -c = git branch + git switch
+:class: dropdown tip
 
-pour rappel, on peut aussi décomposer, le faire en deux fois: créer la branche puis y aller  
+pour rappel, on peut aussi décomposer, et le faire pas à pas en deux fois  
   ```bash
+  # créer la branche
   git branch dumbledore HEAD~
+  # et y aller
   git switch dumbledore
   ```
 ````
@@ -305,14 +315,16 @@ ce qui se passe, c'est ceci
 :align: center
 ```
 
-* les changements faits dans la zone "chacun chez soi" peut être fusionnés sans souci
+* les changements faits dans la zone "chacun chez soi" (en vert sur le dessin) peuvent être fusionnés sans souci
 * par contre comme les deux branches ont modifié la ligne de total chacune de leur côté  
   **la fusion ne sait pas quelle version retenir**
 
+voilà, on a créé **un conflit**, et du coup **tout s'arrête**…  
+
 +++ {"tags": []}
 
-voilà, on a créé **un conflit**  
-du coup **tout s'arrête**…  
+### conflit: état du repo 
+
 dans quel état est notre dépôt à ce stade ?
 
 * on n'a **pas créé** le commit de fusion, évidemment
@@ -332,10 +344,10 @@ dans quel état est notre dépôt à ce stade ?
   ```
 
 * on apprend comme ça que c'est dans `form.txt` que se situe le souci  
-  (bon nous on n'a qu'un seul fichier, mais quand il y a 200 c'est une information intéressante)  
-
+  (bon nous on n'a qu'un seul fichier, mais quand il y en a 200 c'est une information intéressante)  
 * et `git merge` nous a laissé les conflits **annotés directement dans le code**  
   avec cette forme qui est facile à voir visuellement
+
   ```console
   <<<<<<< HEAD
   total        : 12
@@ -349,7 +361,7 @@ dans quel état est notre dépôt à ce stade ?
 
 +++ {"tags": []}
 
-### nettoyer (1): revenir en arriére
+### nettoyer - option 1: revenir en arriére
 
 pour cela, on a principalement deux choix :
 
@@ -364,7 +376,7 @@ pour cela, on a principalement deux choix :
 
 +++ {"tags": []}
 
-### nettoyer (2): résoudre le conflit
+### nettoyer - option 2: résoudre le conflit
 2. soit on décide de gérer, c'est-à-dire de passer sur les conflits (nous on n'en a qu'un) et de décider quoi faire;
 
 +++ {"tags": []}
@@ -373,13 +385,25 @@ faisons-le; nous ici on veut dire que le total, ça n'est ni 12 ni 15, mais 27
 
 pour résoudre le conflit, on doit utiliser un éditeur de code; dans vs-code par exemple on verrait ceci
 
-![](media/vscode-conflict.png)
+```{image} media/vscode-conflict.png
+:align: center
+```
 
 la bonne nouvelle, c'est qu'il a détecté la présence d'un conflit; il nous propose même des options toutes faites (*Accept current change*…) pour choisir l'une ou l'autre des deux versions
 
-la mauvaise nouvelle, c'est qu'aucune des deux ne convient, et ce qu'on va faire simplement c'est d'écrire la ligne comme elle doit être, et en enlevant toutes les annotations à base de `>>>` ou `<<<` ou `===`; ça donne ceci
+la mauvaise nouvelle, c'est qu'aucune des deux ne convient, et ce qu'on va faire simplement c'est d'écrire la ligne comme elle doit être, ça donne ceci:
 
-![](media/vscode-conflict-solved.png)
+```{image} media/vscode-conflict-solved.png
+:align: center
+```
+
+````{admonition} enlevez bien les >>> et autres
+
+
+que vous utilisiez les options vs-code (ce qu'on n'a pas pu faire ici) ou que vous éditiez le fichier "à la main" comme on vient de faire, pensez à **toujours bien enlever toutes les annotations à base de `>>>` ou `<<<` ou `===`**  
+
+certains débutants ne réalisent pas que ces annotations sont vraiment dans le fichier, et rendent du code **qui ne marche plus du tout** parce que Python ou C++ ne sait pas quoi faire avec un texte qui contient ce genre de bidules, évidemment
+````
 
 +++ {"tags": []}
 
@@ -393,6 +417,8 @@ la mauvaise nouvelle, c'est qu'aucune des deux ne convient, et ce qu'on va faire
 * et là on peut concrétiser le merge en faisant
   ```bash
   git merge --continue
+  # ou encore si on préfère`
+  git commit
   ```
   petit détail, on ne peut pas passer de message sur la ligne de commande avec -m ici  
   et remarquez qu'on aurait tout aussi bien pu faire tout simplement   
@@ -442,13 +468,11 @@ la mauvaise nouvelle, c'est qu'aucune des deux ne convient, et ce qu'on va faire
 
 à retenir à propos de ce notebook :
 
-* lorsque les **deux commits** à fusionner sont **parents** l'un de l'autre,  
-   la fusion n'a **pas besoin de créer** un nouveau commit;   
-   c'est ce qu'on appelle une fusion *fast-forward*
-
-
+* lorsque les **deux commits** à fusionner sont **parents** l'un de l'autre,
+  la fusion n'a **pas besoin de créer** un nouveau commit;     
+   c'est ce qu'on appelle une **fusion *fast-forward***
 * dans le cas contraire, la **création** d'un commit est **nécessaire**
   * les **modifications disjointes** peuvent être fusionnées **automatiquement**
-  * lorsque deux modifications changent la **même zone** de code par contre  
-    la fusion atteint ses limites, et on doit **résoudre les conflits**  
-    puis finaliser la fusion à la main en appelant `git commit`
+  * lorsque deux modifications changent la **même zone** de code par contre, la fusion atteint ses limites:
+    * on doit alors **résoudre les conflits**
+    * puis finaliser la fusion à la main en appelant `git commit`

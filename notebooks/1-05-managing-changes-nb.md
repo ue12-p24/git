@@ -79,7 +79,9 @@ dans un premier temps on revoit, sous une forme visuelle, les commandes qu'on a 
 
 on utilisera ce type de présentation dans la suite :
 
-![](media/kn-lifecycle-1-clean.svg)
+```{image} media/kn-lifecycle-1-clean.svg
+:align: center
+```
 
 +++
 
@@ -87,13 +89,21 @@ on utilisera ce type de présentation dans la suite :
 
 en général le dépôt n'est pas propre, on peut voir les (deux familles de) différences avec ces 2 commandes
 
-![](media/kn-lifecycle-2-status-diff.svg)
+```{image} media/kn-lifecycle-2-status-diff.svg
+:align: center
+```
+
++++
+
+***
 
 +++
 
 #### j'utilise mon éditeur
 
-![](media/kn-lifecycle-3-editor.svg)
+```{image} media/kn-lifecycle-3-editor.svg
+:align: center
+```
 
 le changement que je sauve δ s'ajoute en fait aux différences existantes, qui s'accumulent évidemment.
 
@@ -101,7 +111,9 @@ le changement que je sauve δ s'ajoute en fait aux différences existantes, qui 
 
 #### `git add`
 
-![](media/kn-lifecycle-4-add.svg)
+```{image} media/kn-lifecycle-4-add.svg
+:align: center
+```
 
 la différence apparait maintenant dans la deuxième zone (*staged changes*)
 
@@ -109,33 +121,44 @@ la différence apparait maintenant dans la deuxième zone (*staged changes*)
 
 #### `git commit`
 
-![](media/kn-lifecycle-5-commit.svg)
+```{image} media/kn-lifecycle-5-commit.svg
+:align: center
+```
 
-on crée le commit sur la base du contenu de l'index, du coup les deux (l'index et le dernier commit) sont maintenant égaux
+on crée le nouveau commit sur la base du contenu de l'index, du coup les deux (l'index et le dernier commit) sont maintenant égaux
 
 +++ {"tags": []}
 
 ### pour revenir en arrière
 
-````{note}
+````{admonition} comment lire cette partie
+:class: tip
+
 s'agissant de cette partie, inutile de retenir tous les détails, se souvenir que ça existe pour pouvoir y revenir en cas de besoin
+
+d'autant d'aileurs que, la plupart du temps, on utilisera plutôt une GUI (voir plus bas)
 ````
 
 
-jusqu'à maintenant on a travaillé "de gauche à droite"
+jusqu'à maintenant on a travaillé *"de gauche à droite"*  
+à présent on va voir des commandes nouvelles, qui permettent principalement de défaire la progression des changements", et donc d'aller *"de droite à gauche"*
 
-à présent on va voir des commandes nouvelles, qui permettent principalement de défaire la progression des changements", et donc d'aller "de droite à gauche""
-
-**Attention** du coup car en faisant ça :
+**attention** du coup car en faisant ça :
 
 * d'une part cela peut causer des changements dans nos fichiers et/ou l'index
 * au point que certaines d'entre elles **peuvent nous faire perdre du contenu**
 
 à utiliser avec précaution donc; mais ça a une vraie utilité !
 
-typiquement, on met en chantier une feature, et au bout d'une heure on se dit, non vraiment ça n'est pas du coup comme ça qu'il fallait prendre le problème
+````{admonition} perdre du contenu ?
+:class: warning
+
+dans quelles situations on peut avoir envie de perdre du contenu ?
+
+typiquement, on met en chantier une feature, et au bout d'une heure on se dit, non vraiment ça n'est pas du tout comme ça qu'il fallait prendre le problème
 
 ou encore, pendant le debug on a ajouté 250 instructions `print()`, qu'on veut enlever; plutôt que de les enlever une par une, c'est plus malin de mettre les changements utiles dans l'index, et de jeter les autres différences
+````
 
 +++ {"tags": []}
 
@@ -143,7 +166,9 @@ ou encore, pendant le debug on a ajouté 250 instructions `print()`, qu'on veut 
 
 pour annuler le `add` : si un changement a été promu dans l'index, on peut le déclasser
 
-![](media/kn-lifecycle-6-restore-staged.svg)
+```{image} media/kn-lifecycle-6-restore-staged.svg
+:align: center
+```
 
 +++ {"tags": []}
 
@@ -151,7 +176,9 @@ pour annuler le `add` : si un changement a été promu dans l'index, on peut le
 
 pour jeter les changements non indexés
 
-![](media/kn-lifecycle-7-restore.svg)
+```{image} media/kn-lifecycle-7-restore.svg
+:align: center
+```
 
 +++ {"tags": []}
 
@@ -159,7 +186,9 @@ pour jeter les changements non indexés
 
 pour se mettre inconditionnellement sur un commit, avec un dépôt propre
 
-![](media/kn-lifecycle-8-restore-worktree-staged.svg)
+```{image} media/kn-lifecycle-8-restore-worktree-staged.svg
+:align: center
+```
 
 +++
 
@@ -167,7 +196,7 @@ pour se mettre inconditionnellement sur un commit, avec un dépôt propre
 :class: dropdown caution
 
 ````{div}
-dans les versions anciennes de git, i.e. avant que l'on introduise git restore, on devait utiliser à la place ceci
+dans les versions anciennes de git, i.e. avant que l'on introduise `git restore`, on devait utiliser à la place ceci
 
 | pour faire | avant restore | avec restore |
 |-:|:-:|:-|
@@ -181,8 +210,7 @@ dans les versions anciennes de git, i.e. avant que l'on introduise git restore, 
 
 ### refaire un commit avec `git commit --amend`
 
-vous venez de faire un commit mais il est raté !
-
+vous venez de faire un commit mais il est raté !  
 en général ça peut venir
 
 1. soit du texte du message qu'on a tapé trop vite
@@ -222,9 +250,12 @@ le premier reste dans le repo, mais généralement on ne le "voit plus" car il e
 (label-guis)=
 ## utiliser une GUI
 
-reprenons le niveau de base, pour signaler enfin qu'il existe plein d'outils graphiques pour simplifier l'utilisation de git, et notamment, surtout au début, pour avoir en permanence une représentation bien à jour de l'état du dépôt
+signalons enfin qu'il existe plein d'outils graphiques pour simplifier l'utilisation de git, et notamment, surtout au début, pour
 
-on a déjà présenté l'extension git dans vs-code, qui a l'avantage d'être intégrée nativement, mais peut vite s'avérer limitée
+* avoir en permanence une **représentation bien à jour** de l'état du dépôt
+* gérer plus **simplement le workflow** qu'on a détaillé plus haut  
+  (ajouter, annuler l'ajout, jeter complètement, les changements) et cela finement (ligne par ligne si nécessaire)
+  sans avoir à mémoriser toutes les commandes pour le faire
 
 voici rapidement quelques outils gratuits qui sont bien pratiques
 
@@ -232,18 +263,22 @@ voici rapidement quelques outils gratuits qui sont bien pratiques
 
 ### vs-code
 
-vscode vient avec une extension native 'git'  
-(rien à installer, simplement cliquer sur l'extension dans la barre de gauche)
+on a déjà présenté l'extension git dans vs-code, qui a l'avantage d'être intégrée nativement, mais peut vite s'avérer limitée  
 
+pour utiliser l'extension native 'git', rien à installer, il faut simplement cliquer sur l'extension dans la barre de gauche
 voici comment on navigue dans les différences avec vs-code
 
-![](media/vscode-changes.png)
+```{image} media/vscode-changes.png
+:align: center
+```
 
 +++
 
 si en plus vous installez l'extension 'git graph', vous pourrez aussi voir le graphe des commits directement dans vs-code
 
-![](media/vscode-gitgraph-history.png)
+```{image} media/vscode-gitgraph-history.png
+:align: center
+```
 
 +++
 
@@ -251,13 +286,17 @@ si en plus vous installez l'extension 'git graph', vous pourrez aussi voir le gr
 
 l'outil `Sourcetree` (malheureusement pas supporté sous linux) visualise les deux classes de différences comme ceci
 
-![](media/sourcetree-changes.png)
+```{image} media/sourcetree-changes.png
+:align: center
+```
 
 +++
 
 voici une autre vue qui visualise aussi le graphe des commits
 
-![](media/sourcetree-history.png)
+```{image} media/sourcetree-history.png
+:align: center
+```
 
 +++
 
@@ -265,10 +304,14 @@ voici une autre vue qui visualise aussi le graphe des commits
 
 l'outil GitKraken, qui est disponible cette fois sur linux, les présente quant à lui comme ceci
 
-![](media/gitkraken-changes.png)
+```{image} media/gitkraken-changes.png
+:align: center
+```
 
 +++
 
 ici encore l'outil sait afficher le graphe des commits
 
-![](media/gitkraken-history.png)
+```{image} media/gitkraken-history.png
+:align: center
+```

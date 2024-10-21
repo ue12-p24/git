@@ -36,7 +36,9 @@ illustrer rapidement **le besoin**, et **les cas d'usage** les plus simples;
 [accessible aussi
 ici](https://github.com/ue12-p24/git/raw/main/notebooks/media/kn2-introduction-git.pdf)
 
-````{note}
+````{admonition} pour lire le PDF
+:class: tip
+
 la présentation contient des animations, assurez-vous de bien la visionner en
 mode slideshow  
 durée : grand maximum 10', il ne s'agit **pas de tout comprendre** mais juste de

@@ -68,7 +68,7 @@ HTML(filename="_static/style.html")
 | ￮￮￮￮￮￮￮￮￮￮￮￮ | ***publier des nouveautés*** |
 | `git push` | *ou* `git push origin main` |
 |            | essaie de pousser dans le *remote* `origin` |
-|            | le commit courant au dessus de la branche `main` |
+|            | le commit courant au dessus de la branche `main` (du dépôt distant)|
 |            | **conditions nécessaires:** |
 |            | 1. avoir les droits d'accès dans le *remote* |
 |            | 2. il doit s'agir d'une fusion *fast-forward* |
