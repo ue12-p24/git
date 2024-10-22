@@ -110,11 +110,16 @@ comment faire pour réconcilier votre copie locale avec la nouvelle version du c
 
 et que se passe-t-il alors exactement dans votre copie locale, si vous avez vous-même fait des changements dans les notebooks ?
 
-ce TP demande une préparation spécifique par groupe  
-suivez les instructions de votre enseignant   
+ce TP demande une courte préparation spécifique par groupe  
 une fois que c'est prêt vous devrez visiter une URL **dans le genre de**  
-*`https://github.com/ue12-p24/git-tp-clone-pull-groupe1`*  
-avec bien sûr le bon numéro de groupe
+*`https://github.com/ue12-p24/git-tp-clone-pull-groupe3`*  
+
+```{admonition} à faire par le prof
+:class: dropdown
+
+les instructions pour préparer le TP sont dans  
+`https://github.com/ue12-p24/git-tp-clone-pull-for-teacher`
+```
 ````
 
 +++ {"tags": []}
@@ -145,7 +150,7 @@ un tp plus complet où on simule un travail en groupe
 
 +++ {"tags": []}
 
-## tp-pull-request
+## tp-pull-request-fork
 
 un TP à faire à deux  
 
@@ -155,8 +160,8 @@ un TP à faire à deux
 * élève `B` essaie de pousser son nouveau commit dans le github de `A`, mais échoue car il n'a pas les droits
 * élève `B` demande à github de lui créer **un *fork***
 * élève `B` pousse son commit dans son *fork* (il a le droit cette fois)
-* élève `B` crée (dans le repo de `A`) un *pull request**
-* élève `A` consulte le pull request, et accepte (merge) le changement
+* élève `B` crée (dans le repo de `A`) **un *pull request***
+* élève `A` consulte le *pull request*, et accepte (merge) le changement
 * on vérifie que la modification de `B` est bien dans le repo de `A`
 
 on recommence en inversant les rôles...
@@ -168,7 +173,8 @@ dans l'écran de création du PR, il y a un bouton ***"compare across forks"*** 
 ````
 
 +++
-## tp-pull-request-repo-unique
+
+## tp-pull-request-single-repo
 
 un TP à faire à deux  
 
@@ -177,18 +183,18 @@ un TP à faire à deux
 * élève `B` clone le repo.
 * élève `B` ouvre une nouvelle **branche** `feature-eleve-b` et fait une modification et la met dans un commit
 * élève `B` essaie de pousser son nouveau commit dans le github de `A`, mais échoue car il n'a pas les droits
-* élève `A` donne des droits à l'élève `B` : via Settings/Collabateurs sur le repository du projet. Trouver l'option 'Manage access'/'Add people'
+* élève `A` donne des droits à l'élève `B` : via Settings/Collabateurs sur le repository du projet. Trouver l'option *Manage access*/*Add people*
 * élève `B` accepte l'invitation pour travailler sur le repository de l'élève `A`
 * élève `B` pousse son commit et sa branche sur le repository de l'élève `A`
-* élève `B` crée (dans le repo de `A`) un *pull request**
-* élève `A` consulte le pull request, et accepte (merge) le changement
+* élève `B` crée (dans le repo de `A`) **un *pull request***
+* élève `A` consulte le *pull request*, et accepte (merge) le changement
 * on vérifie que la modification de `B` est bien dans le repo de `A`
 
 * élève `A` peut effectuer la même procedure en commitant sur la branche qu'il créé `feature-eleve-a`
 
-Certain workflow impose que tous les changements soient fait via une Pull Request. On souhaite alors 'protéger' la branche principale `main` contre les commits directs. Pour se faire :
+Certains workflows imposent que tous les changements soient fait via une *Pull Request*. On souhaite alors 'protéger' la branche principale `main` contre les commits directs. Pour ce faire :
 
-* élève `A` va dans les Settings/Branches du repository et click sur l'option 'Add classic branch protection rule'. La branche à protéger est 'main'. Séléctionner l'option 'Require a pull request before merging' et 'Require a pull request before merging'
+* élève `A` va dans les *Settings/Branches* du repository et click sur l'option *'Add classic branch protection rule'*. La branche à protéger est '`main`'. Séléctionner l'option *'Require a pull request before merging'* et *'Require a pull request before merging'*
 * élève `A` et l'élève `B` essaient de pousser un changement/commit directement sur `main`. Que se passe-t-il ?
 
 +++
@@ -197,14 +203,14 @@ Certain workflow impose que tous les changements soient fait via une Pull Reques
 
 un TP à faire à toute la classe
 
-<https://github.com/ue12-p24-git-tp-class-text-template>
-
-demande une préparation très courte de la part du prof
+ce TP demande une courte préparation spécifique par groupe  
+une fois que c'est prêt vous devrez visiter une URL **dans le genre de**  
+*`https://github.com/ue12-p24/git-tp-class-text-groupe3`*  
 
 ````{admonition} à faire par le prof
 :class: dropdown seealso
 
-à destination des avancés, et pour illustrer le cours, voici comment le prof peut faire la préparation pour cet exo
+à destination des avancés, et pour illustrer le cours, voici comment le prof peut faire la préparation pour cet exo, avec le bon numéro de groupe *of course*
 
 ```bash
   # cloner localement le repo de référence
@@ -212,10 +218,14 @@ git clone git@github.com:ue12-p24/git-tp-class-text-template.git
   # aller dedans
 cd git-tp-class-text-template
   # créer le repo sur github - il faut avoir les droits
-gh repo create --public ue12-p24/git-tp-class-text-groupe4
+gh repo create --public ue12-p24/git-tp-class-text-groupe3
   # ajouter un remote qui pointe vers ce nouveau repo (vide pour l'instant)
-git remote add my-group git@github.com:ue12-p24/git-tp-class-text-groupe4.git
+git remote add my-group git@github.com:ue12-p24/git-tp-class-text-groupe3.git
   # pousser dedans
 git push my-group main
 ```
 ````
+
+```{code-cell}
+
+```

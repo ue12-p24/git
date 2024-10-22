@@ -47,12 +47,13 @@ pour ajouter **une dimension sociale** et offrir des possibilités de collaborat
   et pareil, dans une organisation on peut mettre autant de repos qu'on veut
 
 * que ce soit dans un compte ou une orga, l'URL d'un repo est toujours de la forme  
-  *https://github.com/le-compte-ou-l-orga/le-nom-du-repo*  
+  ***https://github.com/le-compte-ou-l-orga/le-nom-du-repo***  
   comme par exemple, pour ce cours justement:  
-  <https://github.com/ue12-p24/git>
+  `https://github.com/ue12-p24/git`  
+  (ou encore, `git@github.com:ue12-p24/git.git` avec ssh)
 
 `````{admonition} le remote *origin*
-:class: dropdown seealso
+:class: dropdown note
 
 toujours au sujet des noms, vous pouvez noter que le plus souvent,
 si vous avez dans votre repo local un *remote* qui s'appelle `origin`, 
@@ -68,7 +69,7 @@ git@github.com:ue12-p24/git.git
 ```
 
 ````{admonition} créer un alias
-:class: dropdown tip
+:class: dropdown seealso
 
 si comme moi vous avez du mal à retenir cette dernière commande, 
 c'est le moment de vous créer un alias: 
@@ -89,14 +90,12 @@ git@github.com:ue12-p24/git.git
 ## les accès
 
 * signalons aussi que chaque repo peut être **public** ou **privé**  
-  pour la suite, si on ne précise rien ce sera pour parler de repos publics
-
+  pour la suite, si on ne précise rien, ce sera pour parler de repos publics
 * un repo public peut être  
   **lu**, et donc aussi cloné, par tout le monde  
-  **écrit** (ou pourra pousser dedans) par une liste finie de gens définie dans les *Settings* du repo
-
+  **écrit** (ou pourra pousser dedans) par une liste finie de gens définie dans les *Settings* du repo (et de l'orga)
 * un repo privé quant à lui peut être  
-  **lu** ou **écrit** par une liste finie de gens (idem)
+  **lu** et **écrit** par une liste finie de gens (idem)
 
 +++
 
@@ -135,7 +134,7 @@ dans un scénario typique:
 
 ### Bob veut soumettre ses changements à Alice : le Fork
 
-9. là par contre ça se corse un peu
+9. là par contre ça se corse un peu  
    il faut prendre en compte le fait que, si ça se trouve, Alice n'a jamais entendu parler de Bob et ignore même jusqu'à son existence !  
    du coup, pour commencer, Bob ne fait pas partie des gens qui ont le droit de modifier le repo d'Alice
 1. pour contourner ça, et pour pouvoir a minima exposer son idée à Alice, Bob va se **créer un fork**  

@@ -68,7 +68,7 @@ c'est-à-dire qu'en quelque sorte on va
 
 +++
 
-donc vous voyez que si on compare les deux scénarions (le merge et le rebase), il y a pas mal de similitudes en ceci que dans les deux cas, le contenu de `devel` est le même !  
+donc vous voyez que si on compare les deux scénarios (le merge et le rebase), il y a pas mal de similitudes en ceci que dans les deux cas, le contenu de `devel` est le même !  
 en effet en partant de la fourche, on a bien dans les deux cas le résultat des changements $δ_1+δ_2+δ_3+δ_4$
 
 ce qui change c'est l'absence de "diamant", on peut de cette façon garder un historique purement linéaire (certains projets imposent cette façon de fonctionner...)
