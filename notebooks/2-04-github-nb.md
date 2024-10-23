@@ -165,31 +165,55 @@ dans un scénario typique:
 
 +++
 
-## créer un repo sur github: README or not README ?
+## quelques indices sur l'UI de github
 
-signalons un conseil pratique; il y a un point qui gêne pas mal les débutants, au moment de se mettre sur github:
++++
 
+### créer un repo sur github: README or not README ?
+
+commençons avec un conseil pratique; il y a un point qui gêne pas mal les débutants, au moment de se mettre sur github:  
 lorsque vous créez le repo par l'interface web de github, on vous demande à un moment:
 
-> voulez-vous créer un README ?
+> voulez-vous créer un README ? voulez-vous créer une licence ? voulez-vous ajouter un `.gitignore` ?
 
 en réalité, cette question devrait plutôt être entendue comme 
 
-> voulez-vous créer un repo complètement vide  (si vous choisissez de ne pas créer un README)
-> ou bien avec un premier commit (qui contiendra alors le README minimal) ?
+> voulez-vous créer un repo complètement vide (auquel cas vous choisissez NON à toutes ces questions)
+> ou bien avec un premier commit (qui contiendra alors le ou les fichiers choisis) ?
 
 ou encore, si vous préférez
 
-> est-ce que vous avez déjà commencé à créer des commits de votre coté (ne créez pas le README) ou bien vous partez vraiment de rien ?
+> est-ce que vous avez déjà commencé à créer des commits de votre coté (ne créez pas le README)
+> ou bien est-ce que vous partez vraiment de rien ?
 
-en effet, si vous avez déjà créé un ou des commits, il est **fortement recommandé** de ne pas créer de commit du coté de github, car ensuite il faudrait merger deux fils sans ancêtre commun...
+en effet, si vous avez **déjà créé un repo** quelque part sur votre ordi, il est **fortement recommandé** de **ne pas créer** de commit du coté de github, car ensuite il faudrait merger deux fils sans ancêtre commun...
+
++++
+
+### pour créer un fork
+
+il faut aller dans la page du repo sur github, et cliquer sur le bouton *Fork* en haut à droite
+
+  ```{image} media/github-howto-fork.png
+  :align: center
+  :width: 600px
+  ```
+
++++
+
+### pour inviter des gens dans un repo
+
+passer par l'onglet *Settings* comme ceci  
+```{image} media/github-collaborators.png
+:align: center
+:width: 600px
+```
 
 +++
 
 ## `gh` (avancés)
 
-enfin pour les avancés, sachez que toutes les opérations que l'on fait depuis l'interface web peuvent aussi être faits par la ligne de commande en utilsiant un outil qui s'appelle `gh`
-
+enfin pour les avancés, sachez que toutes les opérations que l'on fait depuis l'interface web peuvent aussi être faits par la ligne de commande en utilisant un outil qui s'appelle `gh`  
 voici par exemple comment je crée un repo pour le TP "class-ids" de mon groupe
 
 ```bash

@@ -225,7 +225,3 @@ git remote add my-group git@github.com:ue12-p24/git-tp-class-text-groupe3.git
 git push my-group main
 ```
 ````
-
-```{code-cell}
-
-```
